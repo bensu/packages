@@ -7,7 +7,8 @@
 (require '[adzerk.bootlaces :refer :all]
          '[cljsjs.boot-cljsjs.packaging :refer :all])
 
-(def +version+ "2.6.1")
+(def react-widgets-version "2.6.1")
+(def +version+ (str react-widgets "-0"))
 (bootlaces! +version+)
 
 (task-options!
@@ -19,7 +20,7 @@
        :license     {"MIT" "http://opensource.org/licenses/MIT"}})
 
 (deftask download-react-widgets []
-  (download :url "https://github.com/jquense/react-widgets/archive/v2.6.1.zip"
+  (download :url (str "https://github.com/jquense/react-widgets/archive/v" react-widgets-version ".zip")
             :checksum "224e502fb1a1165e306c59601c4f53e6"
             :unzip    true))
 
