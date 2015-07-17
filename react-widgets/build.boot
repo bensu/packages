@@ -34,4 +34,5 @@
                  "cljsjs/production/react-widgets.min.js"})
     (sift :include #{#"^cljsjs"})
     (deps-cljs :name "cljsjs.react-widgets"
+               :no-externs true
                :requires ["cljsjs.react"])))
