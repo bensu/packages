@@ -1,8 +1,8 @@
-# cljsjs/fixed-data-table
+# cljsjs/react-widgets
 
 [](dependency)
 ```clojure
-[cljsjs/fixed-data-table "0.3.0-0"] ;; latest release
+[cljsjs/react-widgets "2.6.1"] ;; latest release
 ```
 [](/dependency)
 
@@ -12,5 +12,5 @@ you can require the packaged library like so:
 
 ```clojure
 (ns application.core
-  (:require cljsjs.fixed-data-table))
+  (:require cljsjs.react-widgets))
 ```

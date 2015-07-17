@@ -2,39 +2,36 @@
   :resource-paths #{"resources"}
   :dependencies '[[adzerk/bootlaces          "0.1.11" :scope "test"]
                   [cljsjs/boot-cljsjs        "0.5.0"  :scope "test"]
-                  [cljsjs/react              "0.13.3-0"]
-                  [cljsjs/object-assign-shim "0.1.0-1"]])
+                  [cljsjs/react              "0.13.3-0"]])
 
 (require '[adzerk.bootlaces :refer :all]
          '[cljsjs.boot-cljsjs.packaging :refer :all])
 
-(def +version+ "0.3.0-0")
+(def +version+ "2.6.1")
 (bootlaces! +version+)
 
 (task-options!
- pom  {:project     'cljsjs/fixed-data-table
+ pom  {:project     'cljsjs/react-widgets
        :version     +version+
-       :description "A React table component designed to allow presenting thousands of rows of data."
-       :url         "https://github.com/facebook/fixed-data-table"
+       :description  "An à la carte set of polished, extensible, and accessible inputs built for React"
+       :url         "https://github.com/jquense/react-widgets"
        :scm         {:url "https://github.com/cljsjs/packages"}
-       :license     {"BSD" "http://opensource.org/licenses/BSD-3-Clause"}})
+       :license     {"MIT" "http://opensource.org/licenses/MIT"}})
 
-(deftask download-fixed-data-table []
-  (download :url      "https://github.com/facebook/fixed-data-table/archive/v0.3.0.zip"
-            :checksum "3C74FDCC7D87E2AFFE836889B351281C"
+(deftask download-react-widgets []
+  (download :url "https://github.com/jquense/react-widgets/archive/v2.6.1.zip"
+            :checksum "224e502fb1a1165e306c59601c4f53e6"
             :unzip    true))
 
 (deftask package []
   (comp
-    (download-fixed-data-table)
-    (sift :move {#"^fixed-data-table-.*/dist/fixed-data-table.js"
-                 "cljsjs/development/fixed-data-table.inc.js"
-                 #"^fixed-data-table-.*/dist/fixed-data-table.css"
-                 "cljsjs/development/fixed-data-table.inc.css"
-                 #"^fixed-data-table-.*/dist/fixed-data-table.min.js"
-                 "cljsjs/production/fixed-data-table.min.inc.js"
-                 #"^fixed-data-table-.*/dist/fixed-data-table.min.css"
-                 "cljsjs/production/fixed-data-table.min.inc.css"})
+    (download-react-widgets)
+    (sift :move {#"^react-widgets-.*/dist/react-widgets.js"
+                 "cljsjs/development/react-widgets.inc.js"
+                 #"^react-widgets-.*/dist/css/*"
+                 "cljsjs/common/"
+                 #"^react-widgets-.*/dist/react-widgets.js"
+                 "cljsjs/production/react-widgets.min.js"})
     (sift :include #{#"^cljsjs"})
-    (deps-cljs :name "cljsjs.fixed-data-table"
-               :requires ["cljsjs.react" "cljsjs.object-assign-shim"])))
+    (deps-cljs :name "cljsjs.react-widgets"
+               :requires ["cljsjs.react"])))
