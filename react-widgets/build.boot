@@ -5,7 +5,7 @@
                   [cljsjs/react              "0.13.3-0"]])
 
 (require '[adzerk.bootlaces :refer :all]
-         '[cljsjs.boot-cljsjs.packaging :refer :all])
+  	 '[cljsjs.boot-cljsjs.packaging :refer :all])
 
 (def react-widgets-version "2.6.1")
 (def +version+ (str react-widgets "-0"))
