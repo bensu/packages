@@ -8,11 +8,11 @@
   	 '[cljsjs.boot-cljsjs.packaging :refer :all])
 
 (def react-widgets-version "2.6.1")
-(def +version+ (str react-widgets "-0"))
+(def +version+ (str react-widgets-version "-0"))
 (bootlaces! +version+)
 
 (task-options!
- pom  {:project     'cljsjs/react-widgets
+ pom  {:project     'bensu/react-widgets
        :version     +version+
        :description  "An à la carte set of polished, extensible, and accessible inputs built for React"
        :url         "https://github.com/jquense/react-widgets"
