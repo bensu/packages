@@ -16,7 +16,7 @@
        :version     +version+
        :description  "An à la carte set of polished, extensible, and accessible inputs built for React"
        :url         "https://github.com/jquense/react-widgets"
-       :scm         {:url "https://github.com/cljsjs/packages"}
+       :scm         {:url "https://github.com/bensu/packages"}
        :license     {"MIT" "http://opensource.org/licenses/MIT"}})
 
 (deftask download-react-widgets []
